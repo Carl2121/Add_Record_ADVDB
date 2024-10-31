@@ -28,7 +28,9 @@
                   state_province as "State Province",
                   zip_postal_code as "Zip Code",
                   country_region as "Country"
-                FROM customers';
+                FROM customers
+                ORDER BY id DESC
+                LIMIT 10;';
 
         $result = $conn->query($sql);
 

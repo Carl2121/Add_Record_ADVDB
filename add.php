@@ -1,3 +1,30 @@
+<?php
+    include "connect.php";
+
+    if (isset($_POST['submit'])) {
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $job_title = $_POST['job_title'];
+        $business_phone = $_POST['business_phone'];
+        $fax_number = $_POST['fax_number'];
+        $city = $_POST['city'];
+        $state_province = $_POST['state_province'];
+        $zip_postal_code = $_POST['zip_postal_code'];
+        $country_region = $_POST['country_region'];
+
+        $sql = "INSERT INTO customers (first_name, last_name, job_title, business_phone, fax_number, address, city, state_province, zip_postal_code, country_region) VALUES ('$first_name', '$last_name', '$job_title', '$business_phone', '$fax_number', 'NULL', '$city', '$state_province', '$zip_postal_code', '$country_region')";
+        $result = mysqli_query($conn, $sql) or die("Connection Failed.".$conn->connect_error);
+
+        if ($result) {
+            header("Location: index.php");
+        }
+        else {
+            echo "Not successful.";
+        }
+    }
+$conn->close();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
