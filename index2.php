@@ -15,19 +15,20 @@
         echo "<br>";  
         
         // Table 1
-        echo "<h2>Table 1 - All records from the first 10 customers in the customers table </h2>";
+        echo "<h2>Table 1 - All records from the customers table </h2>";
 
         $sql = 'SELECT
                   id as "ID",
                   CONCAT(first_name, " ", last_name) as "Full Name",
                   job_title as "Job Title",
                   business_phone as "Business Phone",
+                  fax_number as "Fax Number",
                   address as "Address",
                   city as "City",
                   state_province as "State Province",
+                  zip_postal_code as "Zip Code",
                   country_region as "Country"
-                FROM customers 
-                WHERE city = "New York";';
+                FROM customers';
 
         $result = $conn->query($sql);
 
@@ -38,9 +39,11 @@
                     <th>FULL NAME</th>
                     <th>JOB TITLE</th>
                     <th>BUSINESS PHONE</th>
+                    <th>FAX NUMBER</th>
                     <th>ADDRESS</th>
                     <th>CITY</th>
                     <th>STATE PROVINCE</th>
+                    <th>ZIP CODE</th>
                     <th>COUNTRY</th>
                   </tr>";
 
@@ -50,9 +53,11 @@
                     <td>{$row['Full Name']}</td>
                     <td>{$row['Job Title']}</td>
                     <td>{$row['Business Phone']}</td>
+                    <td>{$row['Fax Number']}</td>
                     <td>{$row['Address']}</td>
                     <td>{$row['City']}</td>
                     <td>{$row['State Province']}</td>
+                    <td>{$row['Zip Code']}</td>
                     <td>{$row['Country']}</td>
                   </tr>";
           }
