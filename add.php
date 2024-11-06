@@ -13,7 +13,7 @@
         $zip_postal_code = $_POST['zip_postal_code'];
         $country_region = $_POST['country_region'];
 
-        $sql = "INSERT INTO customers (first_name, last_name, job_title, business_phone, fax_number, address, city, state_province, zip_postal_code, country_region) VALUES ('$first_name', '$last_name', '$job_title', '$business_phone', '$fax_number', 'NULL', '$city', '$state_province', '$zip_postal_code', '$country_region')";
+        $sql = "INSERT INTO customers (first_name, last_name, job_title, business_phone, fax_number, address, city, state_province, zip_postal_code, country_region) VALUES ('$first_name', '$last_name', '$job_title', '$business_phone', '$fax_number', '$address', '$city', '$state_province', '$zip_postal_code', '$country_region')";
         $result = mysqli_query($conn, $sql) or die("Connection Failed.".$conn->connect_error);
 
         if ($result) {
