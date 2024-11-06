@@ -61,6 +61,8 @@
                     <td>{$row['State Province']}</td>
                     <td>{$row['Zip Code']}</td>
                     <td>{$row['Country']}</td>
+                    <td><a href=edit.php?edit={$row['ID']}>EDIT</a> 
+                    <a href=delete.php?del={$row['ID']}>DELETE</a></td>
                   </tr>";
           }
           echo "</table>";
