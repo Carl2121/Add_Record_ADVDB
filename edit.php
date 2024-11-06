@@ -28,6 +28,11 @@
             echo "Not successful.";
         }
     }
+
+    $sql = "SELECT * FROM customers WHERE id='$id'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
 $conn->close();
 
 ?>
@@ -64,16 +69,16 @@ $conn->close();
 <body>
     <main class="container">
         <form class="form-grid" action="" method="POST">
-            <label>First Name:</label><input type="text" name="first_name">
-            <label>Last Name:</label><input type="text" name="last_name">
-            <label>Job Title:</label><input type="text" name="job_title">
-            <label>Business Phone:</label><input type="text" name="business_phone">
-            <label>Fax Number:</label><input type="text" name="fax_number">
-            <label>Address:</label><input type="text" name="address">
-            <label>City:</label><input type="text" name="city">
-            <label>State Province:</label><input type="text" name="state_province">
-            <label>Zip Postal Code:</label><input type="text" name="zip_postal_code">
-            <label>Country:</label><input type="text" name="country_region">
+            <label>First Name:</label><input type="text" name="first_name" value="<?php echo $row['first_name']; ?>">
+            <label>Last Name:</label><input type="text" name="last_name" value="<?php echo $row['last_name']; ?>">
+            <label>Job Title:</label><input type="text" name="job_title" value="<?php echo $row['job_title']; ?>">
+            <label>Business Phone:</label><input type="text" name="business_phone" value="<?php echo $row['business_phone']; ?>">
+            <label>Fax Number:</label><input type="text" name="fax_number" value="<?php echo $row['fax_number']; ?>">
+            <label>Address:</label><input type="text" name="address" value="<?php echo $row['address']; ?>">
+            <label>City:</label><input type="text" name="city" value="<?php echo $row['city']; ?>">
+            <label>State Province:</label><input type="text" name="state_province" value="<?php echo $row['state_province']; ?>">
+            <label>Zip Postal Code:</label><input type="text" name="zip_postal_code" value="<?php echo $row['zip_postal_code']; ?>">
+            <label>Country:</label><input type="text" name="country_region" value="<?php echo $row['country_region']; ?>">
             <div class="submit-button">
                 <button type="submit" name="edit">Edit</button>
             </div>
